@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  LaunchScreenViewController.h
 //  myBMI
 //
 //  Created by Irish Magtalas on 27/05/2017.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface LaunchScreenViewController : UIViewController
 
 @end
-

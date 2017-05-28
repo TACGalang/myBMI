@@ -7,27 +7,50 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		733C4F321EDACF9B00F42A23 /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 733C4F311EDACF9B00F42A23 /* ResultViewController.m */; };
+		733C4F341EDAD45500F42A23 /* bmi_normal_anim.json in Resources */ = {isa = PBXBuildFile; fileRef = 733C4F331EDAD45500F42A23 /* bmi_normal_anim.json */; };
+		733C4F361EDAD45E00F42A23 /* bmi_obesse_anim.json in Resources */ = {isa = PBXBuildFile; fileRef = 733C4F351EDAD45E00F42A23 /* bmi_obesse_anim.json */; };
+		733C4F381EDAD46700F42A23 /* bmi_over_anim.json in Resources */ = {isa = PBXBuildFile; fileRef = 733C4F371EDAD46700F42A23 /* bmi_over_anim.json */; };
+		733C4F3A1EDAD46E00F42A23 /* bmi_under_anim.json in Resources */ = {isa = PBXBuildFile; fileRef = 733C4F391EDAD46E00F42A23 /* bmi_under_anim.json */; };
 		7349BD961ED92105007DAB73 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7349BD951ED92105007DAB73 /* main.m */; };
 		7349BD991ED92105007DAB73 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7349BD981ED92105007DAB73 /* AppDelegate.m */; };
-		7349BD9C1ED92105007DAB73 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7349BD9B1ED92105007DAB73 /* ViewController.m */; };
 		7349BD9F1ED92105007DAB73 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7349BD9D1ED92105007DAB73 /* Main.storyboard */; };
 		7349BDA21ED92105007DAB73 /* myBMI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7349BDA01ED92105007DAB73 /* myBMI.xcdatamodeld */; };
 		7349BDA41ED92105007DAB73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7349BDA31ED92105007DAB73 /* Assets.xcassets */; };
 		7349BDA71ED92105007DAB73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7349BDA51ED92105007DAB73 /* LaunchScreen.storyboard */; };
+		7349BDB61ED923C7007DAB73 /* LaunchScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7349BDB51ED923C7007DAB73 /* LaunchScreenViewController.m */; };
+		7349BDB91ED9D51A007DAB73 /* CalculatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7349BDB81ED9D51A007DAB73 /* CalculatorViewController.m */; };
+		7349BDBC1ED9D58C007DAB73 /* BMIFormula.m in Sources */ = {isa = PBXBuildFile; fileRef = 7349BDBB1ED9D58C007DAB73 /* BMIFormula.m */; };
+		73A18C581ED9E94E007032C6 /* bmi_logo_animated.json in Resources */ = {isa = PBXBuildFile; fileRef = 73A18C571ED9E94E007032C6 /* bmi_logo_animated.json */; };
+		B8B2A4A898E913C97241F7C6 /* libPods-myBMI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 71D174D52A6A2BF9DC0A57E4 /* libPods-myBMI.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B72DC712AA6AFC8F3DBBC71 /* Pods-myBMI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myBMI.release.xcconfig"; path = "Pods/Target Support Files/Pods-myBMI/Pods-myBMI.release.xcconfig"; sourceTree = "<group>"; };
+		71D174D52A6A2BF9DC0A57E4 /* libPods-myBMI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myBMI.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		733C4F301EDACF9B00F42A23 /* ResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultViewController.h; sourceTree = "<group>"; };
+		733C4F311EDACF9B00F42A23 /* ResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultViewController.m; sourceTree = "<group>"; };
+		733C4F331EDAD45500F42A23 /* bmi_normal_anim.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bmi_normal_anim.json; sourceTree = "<group>"; };
+		733C4F351EDAD45E00F42A23 /* bmi_obesse_anim.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bmi_obesse_anim.json; sourceTree = "<group>"; };
+		733C4F371EDAD46700F42A23 /* bmi_over_anim.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bmi_over_anim.json; sourceTree = "<group>"; };
+		733C4F391EDAD46E00F42A23 /* bmi_under_anim.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bmi_under_anim.json; sourceTree = "<group>"; };
 		7349BD911ED92105007DAB73 /* myBMI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myBMI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7349BD951ED92105007DAB73 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7349BD971ED92105007DAB73 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7349BD981ED92105007DAB73 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		7349BD9A1ED92105007DAB73 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		7349BD9B1ED92105007DAB73 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		7349BD9E1ED92105007DAB73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7349BDA11ED92105007DAB73 /* myBMI.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = myBMI.xcdatamodel; sourceTree = "<group>"; };
 		7349BDA31ED92105007DAB73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7349BDA61ED92105007DAB73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7349BDA81ED92105007DAB73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7349BDB41ED923C7007DAB73 /* LaunchScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchScreenViewController.h; sourceTree = "<group>"; };
+		7349BDB51ED923C7007DAB73 /* LaunchScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchScreenViewController.m; sourceTree = "<group>"; };
+		7349BDB71ED9D51A007DAB73 /* CalculatorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorViewController.h; sourceTree = "<group>"; };
+		7349BDB81ED9D51A007DAB73 /* CalculatorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorViewController.m; sourceTree = "<group>"; };
+		7349BDBA1ED9D58C007DAB73 /* BMIFormula.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMIFormula.h; sourceTree = "<group>"; };
+		7349BDBB1ED9D58C007DAB73 /* BMIFormula.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMIFormula.m; sourceTree = "<group>"; };
+		73A18C571ED9E94E007032C6 /* bmi_logo_animated.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bmi_logo_animated.json; sourceTree = "<group>"; };
+		AEC56A18EADBE92B626EECD7 /* Pods-myBMI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myBMI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-myBMI/Pods-myBMI.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,17 +58,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8B2A4A898E913C97241F7C6 /* libPods-myBMI.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		124D8288822C27804E500A4B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AEC56A18EADBE92B626EECD7 /* Pods-myBMI.debug.xcconfig */,
+				2B72DC712AA6AFC8F3DBBC71 /* Pods-myBMI.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		7349BD881ED92105007DAB73 = {
 			isa = PBXGroup;
 			children = (
 				7349BD931ED92105007DAB73 /* myBMI */,
 				7349BD921ED92105007DAB73 /* Products */,
+				124D8288822C27804E500A4B /* Pods */,
+				895D88A3DFE18D224FE855AF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,10 +95,17 @@
 		7349BD931ED92105007DAB73 /* myBMI */ = {
 			isa = PBXGroup;
 			children = (
+				73A18C561ED9E92D007032C6 /* Assets */,
 				7349BD971ED92105007DAB73 /* AppDelegate.h */,
 				7349BD981ED92105007DAB73 /* AppDelegate.m */,
-				7349BD9A1ED92105007DAB73 /* ViewController.h */,
-				7349BD9B1ED92105007DAB73 /* ViewController.m */,
+				7349BDBA1ED9D58C007DAB73 /* BMIFormula.h */,
+				7349BDBB1ED9D58C007DAB73 /* BMIFormula.m */,
+				7349BDB41ED923C7007DAB73 /* LaunchScreenViewController.h */,
+				7349BDB51ED923C7007DAB73 /* LaunchScreenViewController.m */,
+				7349BDB71ED9D51A007DAB73 /* CalculatorViewController.h */,
+				7349BDB81ED9D51A007DAB73 /* CalculatorViewController.m */,
+				733C4F301EDACF9B00F42A23 /* ResultViewController.h */,
+				733C4F311EDACF9B00F42A23 /* ResultViewController.m */,
 				7349BD9D1ED92105007DAB73 /* Main.storyboard */,
 				7349BDA31ED92105007DAB73 /* Assets.xcassets */,
 				7349BDA51ED92105007DAB73 /* LaunchScreen.storyboard */,
@@ -82,6 +124,26 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		73A18C561ED9E92D007032C6 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				733C4F391EDAD46E00F42A23 /* bmi_under_anim.json */,
+				733C4F351EDAD45E00F42A23 /* bmi_obesse_anim.json */,
+				733C4F371EDAD46700F42A23 /* bmi_over_anim.json */,
+				733C4F331EDAD45500F42A23 /* bmi_normal_anim.json */,
+				73A18C571ED9E94E007032C6 /* bmi_logo_animated.json */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		895D88A3DFE18D224FE855AF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				71D174D52A6A2BF9DC0A57E4 /* libPods-myBMI.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -89,9 +151,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7349BDAB1ED92106007DAB73 /* Build configuration list for PBXNativeTarget "myBMI" */;
 			buildPhases = (
+				4E69965138A429282E202DEE /* [CP] Check Pods Manifest.lock */,
 				7349BD8D1ED92105007DAB73 /* Sources */,
 				7349BD8E1ED92105007DAB73 /* Frameworks */,
 				7349BD8F1ED92105007DAB73 /* Resources */,
+				FF9979031C3C89C317C9D760 /* [CP] Embed Pods Frameworks */,
+				2249B30E5137D404CA88E523 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -141,7 +206,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				733C4F361EDAD45E00F42A23 /* bmi_obesse_anim.json in Resources */,
+				733C4F381EDAD46700F42A23 /* bmi_over_anim.json in Resources */,
+				73A18C581ED9E94E007032C6 /* bmi_logo_animated.json in Resources */,
 				7349BDA71ED92105007DAB73 /* LaunchScreen.storyboard in Resources */,
+				733C4F3A1EDAD46E00F42A23 /* bmi_under_anim.json in Resources */,
+				733C4F341EDAD45500F42A23 /* bmi_normal_anim.json in Resources */,
 				7349BDA41ED92105007DAB73 /* Assets.xcassets in Resources */,
 				7349BD9F1ED92105007DAB73 /* Main.storyboard in Resources */,
 			);
@@ -149,13 +219,64 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2249B30E5137D404CA88E523 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-myBMI/Pods-myBMI-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4E69965138A429282E202DEE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FF9979031C3C89C317C9D760 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-myBMI/Pods-myBMI-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7349BD8D1ED92105007DAB73 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				7349BDA21ED92105007DAB73 /* myBMI.xcdatamodeld in Sources */,
-				7349BD9C1ED92105007DAB73 /* ViewController.m in Sources */,
+				733C4F321EDACF9B00F42A23 /* ResultViewController.m in Sources */,
+				7349BDB61ED923C7007DAB73 /* LaunchScreenViewController.m in Sources */,
+				7349BDB91ED9D51A007DAB73 /* CalculatorViewController.m in Sources */,
+				7349BDBC1ED9D58C007DAB73 /* BMIFormula.m in Sources */,
 				7349BD991ED92105007DAB73 /* AppDelegate.m in Sources */,
 				7349BD961ED92105007DAB73 /* main.m in Sources */,
 			);
@@ -277,10 +398,12 @@
 		};
 		7349BDAC1ED92106007DAB73 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AEC56A18EADBE92B626EECD7 /* Pods-myBMI.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = WC2SZ68D3B;
 				INFOPLIST_FILE = myBMI/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tristan.myBMI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -289,10 +412,12 @@
 		};
 		7349BDAD1ED92106007DAB73 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B72DC712AA6AFC8F3DBBC71 /* Pods-myBMI.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = WC2SZ68D3B;
 				INFOPLIST_FILE = myBMI/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tristan.myBMI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -318,6 +443,7 @@
 				7349BDAD1ED92106007DAB73 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

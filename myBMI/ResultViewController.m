@@ -9,12 +9,17 @@
 #import "ResultViewController.h"
 #import "BMIFormula.h"
 #import <Lottie/Lottie.h>
+#import "CoreDataStack.h"
+
+#import <CoreData/CoreData.h>
 
 @interface ResultViewController ()
 
 @end
 
 @implementation ResultViewController
+
+@synthesize bmiData;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -69,6 +74,10 @@
 {
     LOTAnimationView *animation = [LOTAnimationView animationNamed:jsonName];
     [self.iconView addSubview:animation];
+    //CGRect frame = self.iconView.frame;
+    //frame.size.height = self.view.bounds.size.height;
+    animation.frame = self.iconView.frame;
+    animation.contentMode = UIViewContentModeScaleAspectFit;
     animation.center = CGPointMake(self.iconView.frame.size.width/2, self.iconView.frame.size.height/2);
     animation.autoresizingMask = (UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin  |
                                   UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleBottomMargin);
@@ -88,11 +97,43 @@
 */
 
 
-- (IBAction)onBtnRecord:(id)sender {
+- (IBAction)onBtnRecord:(id)sender
+{
+    NSManagedObjectContext *context = [self manageObjectContext];
+    
+    NSManagedObject *newBMIData = [NSEntityDescription insertNewObjectForEntityForName:@"Bmi" inManagedObjectContext:context];
+    
+    [newBMIData setValue:[NSNumber numberWithFloat:[self.bmi floatValue]] forKey:@"bmi_index"];
+    [newBMIData setValue:[NSNumber numberWithFloat:[self.height floatValue]] forKey:@"bmi_height"];
+    [newBMIData setValue:[NSNumber numberWithFloat:[self.weight floatValue] ] forKey:@"bmi_weight"];
+    [newBMIData setValue:[NSDate date] forKey:@"bmi_date"];
+
+    NSError *error = nil;
+    
+    if(![context save:&error]){
+        NSLog(@"%@ %@", error, [error localizedDescription]);
+    }
+
+    [self onBtnBack:sender];
 }
 
 - (IBAction)onBtnBack:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 
+}
+
+
+#pragma mark - Core Data
+
+-(NSManagedObjectContext *)manageObjectContext
+{
+    NSManagedObjectContext *context = nil;
+    id coreDataStack = [CoreDataStack defaultStack];
+    if([coreDataStack performSelector:@selector(managedObjectContext)]){
+        context = [coreDataStack managedObjectContext];
+    }
+    
+    return context;
+    
 }
 @end

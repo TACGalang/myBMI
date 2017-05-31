@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    LOTAnimationView *animation = [LOTAnimationView animationNamed:@"bmi_logo_animated"];
+    LOTAnimationView *animation = [LOTAnimationView animationNamed:@"bmi_logo_anim"];
     animation.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2);
     [self.view addSubview:animation];
     

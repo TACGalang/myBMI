@@ -7,8 +7,11 @@
 //
 
 #import "CalculatorViewController.h"
+#import "CoreDataStack.h"
 #import "BMIFormula.h"
 #import "ResultViewController.h"
+
+#import <CoreData/CoreData.h>
 
 @interface CalculatorViewController ()
 
@@ -22,6 +25,16 @@
     self.usedMeasurementSystem = StandardSystem;
 
     [self layoutDesign];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    NSManagedObjectContext *managedObjectContext = [self manageObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Bmi"];
+    
+    self.storedBMI = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -188,5 +201,50 @@
     }
 }
 
+#pragma mark - Core Data
+
+-(NSManagedObjectContext *)manageObjectContext
+{
+    NSManagedObjectContext *context = nil;
+    id delegate = [CoreDataStack defaultStack];
+    if ([delegate performSelector:@selector(managedObjectContext)]) {
+        context = [delegate managedObjectContext];
+    }
+    
+    return context;
+    
+}
+
+#pragma mark - Table View Data Source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    // Number of rows is the number of time zones in the region for the specified section.
+    return self.storedBMI.count;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    // The header for the section is the region name -- get this from the region at the section index.
+
+    return @"History";
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    
+    //Set Date Format
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+    [dateFormatter setDateFormat:@"MMM d, yyyy"];
+    
+    NSManagedObjectModel *bmiData = [self.storedBMI objectAtIndex:indexPath.row];
+    [cell.textLabel setText:[NSString stringWithFormat:@"%@", [bmiData valueForKey:@"bmi_index"]]];
+    
+    [cell.detailTextLabel setText:[NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:[bmiData valueForKey:@"bmi_date"]]]];
+    
+    return cell;
+}
 
 @end

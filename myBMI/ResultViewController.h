@@ -14,6 +14,7 @@
 
 
 @property BMICategories myCategory;
+@property (strong) NSManagedObjectModel *bmiData;
 @property (strong, nonatomic) NSString *bmi;
 @property (strong, nonatomic) NSString *height;
 @property (strong, nonatomic) NSString *weight;

@@ -23,6 +23,10 @@
 		7349BDBC1ED9D58C007DAB73 /* BMIFormula.m in Sources */ = {isa = PBXBuildFile; fileRef = 7349BDBB1ED9D58C007DAB73 /* BMIFormula.m */; };
 		73A18C581ED9E94E007032C6 /* bmi_logo_animated.json in Resources */ = {isa = PBXBuildFile; fileRef = 73A18C571ED9E94E007032C6 /* bmi_logo_animated.json */; };
 		B8B2A4A898E913C97241F7C6 /* libPods-myBMI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 71D174D52A6A2BF9DC0A57E4 /* libPods-myBMI.a */; };
+		EAE906FD1EDEE93E00E641BC /* bmi_logo_anim.json in Resources */ = {isa = PBXBuildFile; fileRef = EAE906FC1EDEE93E00E641BC /* bmi_logo_anim.json */; };
+		EAE906FF1EDEFCEB00E641BC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAE906FE1EDEFCEB00E641BC /* CoreData.framework */; };
+		EAE907021EDEFEC900E641BC /* CoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = EAE907011EDEFEC900E641BC /* CoreDataStack.m */; };
+		EAE907051EDF172800E641BC /* BmiData.m in Sources */ = {isa = PBXBuildFile; fileRef = EAE907041EDF172800E641BC /* BmiData.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +55,12 @@
 		7349BDBB1ED9D58C007DAB73 /* BMIFormula.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMIFormula.m; sourceTree = "<group>"; };
 		73A18C571ED9E94E007032C6 /* bmi_logo_animated.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bmi_logo_animated.json; sourceTree = "<group>"; };
 		AEC56A18EADBE92B626EECD7 /* Pods-myBMI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myBMI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-myBMI/Pods-myBMI.debug.xcconfig"; sourceTree = "<group>"; };
+		EAE906FC1EDEE93E00E641BC /* bmi_logo_anim.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bmi_logo_anim.json; sourceTree = "<group>"; };
+		EAE906FE1EDEFCEB00E641BC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		EAE907001EDEFEC900E641BC /* CoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataStack.h; sourceTree = "<group>"; };
+		EAE907011EDEFEC900E641BC /* CoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataStack.m; sourceTree = "<group>"; };
+		EAE907031EDF172800E641BC /* BmiData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BmiData.h; sourceTree = "<group>"; };
+		EAE907041EDF172800E641BC /* BmiData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BmiData.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAE906FF1EDEFCEB00E641BC /* CoreData.framework in Frameworks */,
 				B8B2A4A898E913C97241F7C6 /* libPods-myBMI.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -98,6 +109,10 @@
 				73A18C561ED9E92D007032C6 /* Assets */,
 				7349BD971ED92105007DAB73 /* AppDelegate.h */,
 				7349BD981ED92105007DAB73 /* AppDelegate.m */,
+				EAE907001EDEFEC900E641BC /* CoreDataStack.h */,
+				EAE907011EDEFEC900E641BC /* CoreDataStack.m */,
+				EAE907031EDF172800E641BC /* BmiData.h */,
+				EAE907041EDF172800E641BC /* BmiData.m */,
 				7349BDBA1ED9D58C007DAB73 /* BMIFormula.h */,
 				7349BDBB1ED9D58C007DAB73 /* BMIFormula.m */,
 				7349BDB41ED923C7007DAB73 /* LaunchScreenViewController.h */,
@@ -127,6 +142,7 @@
 		73A18C561ED9E92D007032C6 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				EAE906FC1EDEE93E00E641BC /* bmi_logo_anim.json */,
 				733C4F391EDAD46E00F42A23 /* bmi_under_anim.json */,
 				733C4F351EDAD45E00F42A23 /* bmi_obesse_anim.json */,
 				733C4F371EDAD46700F42A23 /* bmi_over_anim.json */,
@@ -139,6 +155,7 @@
 		895D88A3DFE18D224FE855AF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EAE906FE1EDEFCEB00E641BC /* CoreData.framework */,
 				71D174D52A6A2BF9DC0A57E4 /* libPods-myBMI.a */,
 			);
 			name = Frameworks;
@@ -208,6 +225,7 @@
 			files = (
 				733C4F361EDAD45E00F42A23 /* bmi_obesse_anim.json in Resources */,
 				733C4F381EDAD46700F42A23 /* bmi_over_anim.json in Resources */,
+				EAE906FD1EDEE93E00E641BC /* bmi_logo_anim.json in Resources */,
 				73A18C581ED9E94E007032C6 /* bmi_logo_animated.json in Resources */,
 				7349BDA71ED92105007DAB73 /* LaunchScreen.storyboard in Resources */,
 				733C4F3A1EDAD46E00F42A23 /* bmi_under_anim.json in Resources */,
@@ -272,9 +290,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAE907051EDF172800E641BC /* BmiData.m in Sources */,
 				7349BDA21ED92105007DAB73 /* myBMI.xcdatamodeld in Sources */,
 				733C4F321EDACF9B00F42A23 /* ResultViewController.m in Sources */,
 				7349BDB61ED923C7007DAB73 /* LaunchScreenViewController.m in Sources */,
+				EAE907021EDEFEC900E641BC /* CoreDataStack.m in Sources */,
 				7349BDB91ED9D51A007DAB73 /* CalculatorViewController.m in Sources */,
 				7349BDBC1ED9D58C007DAB73 /* BMIFormula.m in Sources */,
 				7349BD991ED92105007DAB73 /* AppDelegate.m in Sources */,

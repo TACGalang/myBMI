@@ -25,6 +25,8 @@
     self.usedMeasurementSystem = StandardSystem;
 
     [self layoutDesign];
+    
+    [self.fetchedResultsController performFetch:nil];
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -32,8 +34,11 @@
     NSManagedObjectContext *managedObjectContext = [self manageObjectContext];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Bmi"];
     
-    self.storedBMI = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
     
+    fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"bmi_date" ascending:NO]];
+    
+    self.storedBMI = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+
     [self.tableView reloadData];
 }
 
@@ -179,6 +184,7 @@
 
         ResultViewController *resultVIew = (ResultViewController *)segue.destinationViewController;
         
+        resultVIew.fromWhere = FromCalculate;
         resultVIew.myCategory = [BMIFormula determineCategory:self.calculatedBMI];
         resultVIew.bmi = [NSString stringWithFormat:@"%0.1f", self.calculatedBMI];
         
@@ -195,9 +201,21 @@
             resultVIew.weight = [NSString stringWithFormat:@" %@ kl", self.txtWeight.text];
 
         }
-
+    }
+    else if ([segue.identifier isEqualToString:@"showBMIHistory"]) {
         
+        ResultViewController *resultVIew = (ResultViewController *)segue.destinationViewController;
+        NSManagedObjectModel *bmiData = [self.storedBMI objectAtIndex:self.tableView.indexPathForSelectedRow.row];
+        
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+        [dateFormatter setDateFormat:@"MMM d, yyyy"];
 
+        resultVIew.fromWhere = FromCell;
+        resultVIew.myCategory = [BMIFormula determineCategory:[[bmiData valueForKey:@"bmi_index"] floatValue]];
+        resultVIew.bmi = [NSString stringWithFormat:@"%@", [bmiData valueForKey:@"bmi_index"]];
+        resultVIew.height = [NSString stringWithFormat:@"%@", [bmiData valueForKey:@"bmi_height"]];
+        resultVIew.weight = [NSString stringWithFormat:@"%@", [bmiData valueForKey:@"bmi_weight"]];
+        resultVIew.navigationBarTitleString = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:[bmiData valueForKey:@"bmi_date"]]];
     }
 }
 
@@ -213,6 +231,29 @@
     
     return context;
     
+}
+
+- (NSFetchRequest *) entryListFetchRequest
+{
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Bmi"];
+    
+    fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"bmi_date" ascending:NO]];
+    
+    return fetchRequest;
+}
+
+- (NSFetchedResultsController *)fetchedResultsController
+{
+    if(_fetchedResultsController != nil){
+        return _fetchedResultsController;
+    }
+    
+    CoreDataStack *coreDataStack = [CoreDataStack defaultStack];
+    NSFetchRequest *fetchRequest = [self entryListFetchRequest];
+    
+    _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:coreDataStack.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
+    
+    return _fetchedResultsController;
 }
 
 #pragma mark - Table View Data Source
@@ -246,5 +287,10 @@
     
     return cell;
 }
+
+
+
+
+
 
 @end

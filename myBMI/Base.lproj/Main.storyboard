@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kNo-Dl-Rp1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kNo-Dl-Rp1">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -81,18 +81,18 @@
                                 </state>
                                 <connections>
                                     <action selector="onPressedCalculate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3XS-1r-W0A"/>
-                                    <segue destination="AEW-Vp-Ewa" kind="presentation" identifier="showResult" id="hXm-Az-lhk"/>
+                                    <segue destination="AEW-Vp-Ewa" kind="presentation" identifier="showResult" id="9aw-Ib-mFE"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8NA-pM-wbl">
                                 <rect key="frame" x="16" y="384" width="343" height="224"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="ESF-IG-IJt" detailTextLabel="jfj-2F-bFB" style="IBUITableViewCellStyleValue1" id="Ddz-wX-1oH">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="ESF-IG-IJt" detailTextLabel="jfj-2F-bFB" style="IBUITableViewCellStyleValue1" id="Ddz-wX-1oH">
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ddz-wX-1oH" id="Dzh-wX-tTM">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="310" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ESF-IG-IJt">
@@ -103,7 +103,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jfj-2F-bFB">
-                                                    <rect key="frame" x="284" y="12" width="44" height="20.5"/>
+                                                    <rect key="frame" x="264" y="12" width="44" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -111,6 +111,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="AEW-Vp-Ewa" kind="show" identifier="showBMIHistory" id="ZZC-3f-HJg"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
@@ -166,7 +169,7 @@
             </objects>
             <point key="canvasLocation" x="2954.4000000000001" y="137.18140929535232"/>
         </scene>
-        <!--Result View Controller-->
+        <!--Health Status-->
         <scene sceneID="fxQ-0B-BnF">
             <objects>
                 <viewController id="AEW-Vp-Ewa" customClass="ResultViewController" sceneMemberID="viewController">
@@ -179,13 +182,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your BMI result is:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7DE-EZ-QEL">
-                                <rect key="frame" x="16" y="50" width="343" height="21"/>
+                                <rect key="frame" x="16" y="94" width="343" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.78431372549019607" green="0.96078431372549022" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="tOE-qz-FAN">
-                                <rect key="frame" x="16" y="81" width="343" height="205"/>
+                                <rect key="frame" x="16" y="125" width="343" height="205"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="tOE-qz-FAN" secondAttribute="height" multiplier="343:205" id="eXO-35-GLW"/>
                                 </constraints>
@@ -201,31 +204,32 @@
                                 </variation>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.00" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="53" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wcf-vK-LZN">
-                                <rect key="frame" x="16" y="286" width="343" height="126.5"/>
+                                <rect key="frame" x="16" y="330" width="343" height="126.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="106"/>
                                 <color key="textColor" red="0.066666666666666666" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Height : 5' 11''" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="UWf-6L-gPj">
-                                <rect key="frame" x="16" y="470.5" width="343" height="27"/>
+                                <rect key="frame" x="16" y="514.5" width="343" height="27"/>
+                                <color key="backgroundColor" red="0.38039215686274508" green="0.83529411764705885" blue="0.8901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" red="0.78431372549019607" green="0.96470588235294119" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Height : 5' 11''" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="0NR-uA-cgN">
-                                <rect key="frame" x="16" y="497.5" width="343" height="27"/>
+                                <rect key="frame" x="16" y="541.5" width="343" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" red="0.78431372549019607" green="0.96470588239999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Normal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="24" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3f2-PF-UR6">
-                                <rect key="frame" x="16" y="412.5" width="343" height="58"/>
+                                <rect key="frame" x="16" y="456.5" width="343" height="58"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="48"/>
                                 <color key="textColor" red="0.066666666669999999" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kJE-6z-Ydq">
-                                <rect key="frame" x="16" y="611" width="44" height="36"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kJE-6z-Ydq">
+                                <rect key="frame" x="16" y="562" width="44" height="36"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
                                 <state key="normal" title="Back">
                                     <color key="titleColor" red="0.78431372549019607" green="0.99215686274509807" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -234,8 +238,8 @@
                                     <action selector="onBtnBack:" destination="AEW-Vp-Ewa" eventType="touchUpInside" id="jz5-rR-Trs"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TjF-VY-8DL">
-                                <rect key="frame" x="295" y="611" width="64" height="36"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TjF-VY-8DL">
+                                <rect key="frame" x="295" y="562" width="64" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Record">
                                     <color key="titleColor" red="0.7843137255" green="0.99215686270000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -323,7 +327,10 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" title="Health Status" id="jvV-Mz-q9c"/>
                     <connections>
+                        <outlet property="btnBack" destination="kJE-6z-Ydq" id="7gO-Se-Fcm"/>
+                        <outlet property="btnRecord" destination="TjF-VY-8DL" id="Itq-zh-5NB"/>
                         <outlet property="iconView" destination="tOE-qz-FAN" id="eUr-uJ-lDl"/>
                         <outlet property="lblBMI" destination="Wcf-vK-LZN" id="bZG-jP-HGA"/>
                         <outlet property="lblCategory" destination="3f2-PF-UR6" id="HYd-Dm-0TQ"/>
@@ -333,7 +340,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wo8-Oq-9Q1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3829.5999999999999" y="135.38230884557723"/>
+            <point key="canvasLocation" x="2956" y="873"/>
         </scene>
         <!--Launch Screen View Controller-->
         <scene sceneID="9Af-cO-5it">
@@ -385,6 +392,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="OFf-t8-aG5" kind="relationship" relationship="viewControllers" id="1X4-Ly-gbf"/>
+                        <segue destination="TZo-iI-nWw" kind="relationship" relationship="viewControllers" id="pYP-bs-9IL"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u6Y-aw-HED" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -415,8 +423,36 @@
             </objects>
             <point key="canvasLocation" x="2015.2" y="137.18140929535232"/>
         </scene>
+        <!--Health Status-->
+        <scene sceneID="cmI-QW-OZi">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TZo-iI-nWw" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Health Status" image="HealthStatus_ico" id="i8H-uT-qDC"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="wuy-f8-Yqu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.37860077619552612" green="0.83555424213409424" blue="0.89140474796295166" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="AEW-Vp-Ewa" kind="relationship" relationship="rootViewController" id="ktD-T0-sfg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XrU-iu-nwC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2015" y="872"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Calcu ico" width="33" height="21"/>
+        <image name="HealthStatus_ico" width="39" height="28"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="ZZC-3f-HJg"/>
+    </inferredMetricsTieBreakers>
 </document>

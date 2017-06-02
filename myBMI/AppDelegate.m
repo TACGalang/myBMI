@@ -17,6 +17,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    //Tab Bar Layout
+    [[UITabBar appearance] setTintColor:[UIColor colorWithRed:17/255.0 green:255/255.0 blue:0/255.0 alpha:1]];
+    [[UITabBar appearance] setUnselectedItemTintColor:[UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1]];
+    
     return YES;
 }
 

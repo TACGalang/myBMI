@@ -24,7 +24,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    
+    self.navigationItem.title = self.navigationBarTitleString;
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     self.lblHeight.text = [NSString stringWithFormat:@"Height: %@", self.height];
     self.lblWeight.text = [NSString stringWithFormat:@"Weight: %@", self.weight];
     self.lblBMI.text = self.bmi;
@@ -32,21 +33,24 @@
     switch (self.myCategory) {
         
         case CategoryUnderweight:
-            [self showAnimatedIcon:@"bmi_under_anim"];
+            self.animatedJson = @"bmi_under_anim";
+            [self showAnimatedIcon: self.animatedJson];
             self.lblCategory.text = @"Underweight";
             self.lblCategory.textColor = [UIColor colorWithRed:0.0/255 green:255.0/255 blue:230.0/255 alpha:1.0];
             self.lblBMI.textColor = [UIColor colorWithRed:0.0/255 green:255.0/255 blue:230.0/255 alpha:1.0];
             break;
             
         case CategoryNormal:
-            [self showAnimatedIcon:@"bmi_normal_anim"];
+            self.animatedJson = @"bmi_normal_anim";
+            [self showAnimatedIcon: self.animatedJson];
             self.lblCategory.text = @"Normal";
             self.lblCategory.textColor = [UIColor colorWithRed:17.0/255 green:255.0/255 blue:0.0/255 alpha:1.0];
             self.lblBMI.textColor = [UIColor colorWithRed:17.0/255 green:255.0/255 blue:0.0/255 alpha:1.0];
             break;
             
         case CategoryOverweight:
-            [self showAnimatedIcon:@"bmi_over_anim"];
+            self.animatedJson = @"bmi_over_anim";
+            [self showAnimatedIcon: self.animatedJson];
             self.lblCategory.text = @"Overweight";
             self.lblCategory.textColor = [UIColor colorWithRed:255.0/255 green:223.0/255 blue:0.0/255 alpha:1.0];
             self.lblBMI.textColor = [UIColor colorWithRed:255.0/255 green:223.0/255 blue:0.0/255 alpha:1.0];
@@ -54,7 +58,8 @@
             break;
         
         case CategoryObesse:
-            [self showAnimatedIcon:@"bmi_obesse_anim"];
+            self.animatedJson = @"bmi_obesse_anim";
+            [self showAnimatedIcon: self.animatedJson];
             self.lblCategory.text = @"Obesse";
             self.lblCategory.textColor = [UIColor colorWithRed:255.0/255 green:160.0/255 blue:0.0/255 alpha:1.0];
             self.lblBMI.textColor = [UIColor colorWithRed:255.0/255 green:160.0/255 blue:0.0/255 alpha:1.0];
@@ -63,6 +68,33 @@
         default:
             break;
     }
+    
+
+}
+
+- (void) viewDidAppear:(BOOL)animated
+{
+    switch (_fromWhere) {
+        case FromCalculate:
+            self.btnRecord.hidden = NO;
+            self.btnBack.hidden = NO;
+            break;
+            
+        case FromTab:
+            self.btnBack.hidden = YES;
+            self.btnRecord.hidden = YES;
+            self.categoryAnimation.animationProgress = 0;
+            [self.categoryAnimation play];
+            break;
+        
+        case FromCell:
+            self.btnBack.hidden = YES;
+            self.btnRecord.hidden = YES;
+            break;
+        default:
+            break;
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -72,17 +104,17 @@
 
 - (void)showAnimatedIcon:(NSString *) jsonName
 {
-    LOTAnimationView *animation = [LOTAnimationView animationNamed:jsonName];
-    [self.iconView addSubview:animation];
+    self.categoryAnimation = [LOTAnimationView animationNamed:jsonName];
+    [self.iconView addSubview:self.categoryAnimation];
     //CGRect frame = self.iconView.frame;
     //frame.size.height = self.view.bounds.size.height;
-    animation.frame = self.iconView.frame;
-    animation.contentMode = UIViewContentModeScaleAspectFit;
-    animation.center = CGPointMake(self.iconView.frame.size.width/2, self.iconView.frame.size.height/2);
-    animation.autoresizingMask = (UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin  |
+    self.categoryAnimation.frame = self.iconView.frame;
+    self.categoryAnimation.contentMode = UIViewContentModeScaleAspectFit;
+    self.categoryAnimation.center = CGPointMake(self.iconView.frame.size.width/2, self.iconView.frame.size.height/2);
+    self.categoryAnimation.autoresizingMask = (UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin  |
                                   UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleBottomMargin);
-    [animation playWithCompletion:^(BOOL animationFinished) {
-        // Do Something
+    [self.categoryAnimation playWithCompletion:^(BOOL animationFinished) {
+        
     }];
 }
 

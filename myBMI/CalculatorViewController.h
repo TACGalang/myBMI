@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "BMIFormula.h"
+#import "CoreDataStack.h"
 
 
 @interface CalculatorViewController : UIViewController
@@ -15,6 +16,7 @@
 @property MeasurementSystem usedMeasurementSystem;
 @property float calculatedBMI;
 @property (strong, nonatomic) NSMutableArray *storedBMI;
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (weak, nonatomic) IBOutlet UITextField *txtHeightFeet;
 @property (weak, nonatomic) IBOutlet UITextField *txtHeightInches;
 @property (weak, nonatomic) IBOutlet UITextField *txtWeight;

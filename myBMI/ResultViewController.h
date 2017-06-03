@@ -20,8 +20,9 @@ typedef enum : NSUInteger {
 
 @property FromWhatCall fromWhere;
 @property BMICategories myCategory;
-@property (strong) NSManagedObjectModel *bmiData;
+@property int bmiIndexPath;
 @property (strong, nonatomic) LOTAnimationView *categoryAnimation;
+@property (strong, nonatomic) NSMutableArray *storedBMI;
 @property (strong, nonatomic) NSString *bmi;
 @property (strong, nonatomic) NSString *height;
 @property (strong, nonatomic) NSString *weight;
@@ -37,4 +38,5 @@ typedef enum : NSUInteger {
 
 - (IBAction)onBtnRecord:(id)sender;
 - (IBAction)onBtnBack:(id)sender;
+- (IBAction)onBtnMananged:(id)sender;
 @end

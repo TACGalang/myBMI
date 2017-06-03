@@ -210,6 +210,8 @@
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
         [dateFormatter setDateFormat:@"MMM d, yyyy"];
 
+        resultVIew.storedBMI = self.storedBMI;
+        resultVIew.bmiIndexPath = (int)self.tableView.indexPathForSelectedRow.row;
         resultVIew.fromWhere = FromCell;
         resultVIew.myCategory = [BMIFormula determineCategory:[[bmiData valueForKey:@"bmi_index"] floatValue]];
         resultVIew.bmi = [NSString stringWithFormat:@"%@", [bmiData valueForKey:@"bmi_index"]];

@@ -19,12 +19,15 @@
 
 @implementation ResultViewController
 
-@synthesize bmiData;
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.navigationItem.title = self.navigationBarTitleString;
+    if(self.navigationBarTitleString){
+        
+        self.navigationItem.title = self.navigationBarTitleString;
+    }
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     self.lblHeight.text = [NSString stringWithFormat:@"Height: %@", self.height];
     self.lblWeight.text = [NSString stringWithFormat:@"Weight: %@", self.weight];
@@ -70,10 +73,6 @@
     }
     
 
-}
-
-- (void) viewDidAppear:(BOOL)animated
-{
     switch (_fromWhere) {
         case FromCalculate:
             self.btnRecord.hidden = NO;
@@ -83,14 +82,30 @@
         case FromTab:
             self.btnBack.hidden = YES;
             self.btnRecord.hidden = YES;
-            self.categoryAnimation.animationProgress = 0;
-            [self.categoryAnimation play];
             break;
-        
+            
         case FromCell:
+            self.navigationItem.rightBarButtonItem.title = @"Delete";
+            self.navigationItem.rightBarButtonItem.tintColor = [UIColor orangeColor];
             self.btnBack.hidden = YES;
             self.btnRecord.hidden = YES;
             break;
+        default:
+            break;
+    }
+}
+
+- (void) viewDidAppear:(BOOL)animated
+{
+    switch (_fromWhere) {
+        
+        case FromTab:
+            self.btnBack.hidden = YES;
+            self.btnRecord.hidden = YES;
+            self.categoryAnimation.animationProgress = 0;
+            [self.categoryAnimation play];
+            break;
+
         default:
             break;
     }
@@ -108,13 +123,13 @@
     [self.iconView addSubview:self.categoryAnimation];
     //CGRect frame = self.iconView.frame;
     //frame.size.height = self.view.bounds.size.height;
-    self.categoryAnimation.frame = self.iconView.frame;
+    //self.categoryAnimation.frame = self.iconView.frame;
     self.categoryAnimation.contentMode = UIViewContentModeScaleAspectFit;
     self.categoryAnimation.center = CGPointMake(self.iconView.frame.size.width/2, self.iconView.frame.size.height/2);
     self.categoryAnimation.autoresizingMask = (UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin  |
                                   UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleBottomMargin);
     [self.categoryAnimation playWithCompletion:^(BOOL animationFinished) {
-        
+        self.fromWhere = FromTab;
     }];
 }
 
@@ -151,6 +166,23 @@
 
 - (IBAction)onBtnBack:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
+
+}
+
+- (IBAction)onBtnMananged:(id)sender {
+    
+    if([self.navigationItem.rightBarButtonItem.title isEqualToString:@"Delete"]){
+        
+        NSManagedObjectContext *context = [self manageObjectContext];
+        
+        [context deleteObject:[self.storedBMI objectAtIndex:self.bmiIndexPath]];
+        
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
+    else{
+        
+        self.tabBarController.selectedIndex = 0;
+    }
 
 }
 

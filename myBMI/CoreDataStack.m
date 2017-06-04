@@ -33,7 +33,10 @@ NSString *const myURLForResource = @"myBMI";
 
 - (NSURL *)applicationDocumentsDirectory {
     // The directory the application uses to store the Core Data store file. This code uses a directory named "com.geekylemon.CarSpotter" in the application's documents directory.
-    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+    NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+    
+    NSLog(@"%@", url);
+    return url;
 }
 
 - (NSManagedObjectModel *)managedObjectModel {

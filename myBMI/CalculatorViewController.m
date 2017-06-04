@@ -26,7 +26,7 @@
 
     [self layoutDesign];
     
-    [self.fetchedResultsController performFetch:nil];
+//    [self.fetchedResultsController performFetch:nil];
 }
 
 -(void)viewDidAppear:(BOOL)animated

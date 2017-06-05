@@ -40,6 +40,15 @@
     self.storedBMI = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
 
     [self.tableView reloadData];
+    
+    //UserDefaults
+    NSUserDefaults *heightDefaults = [NSUserDefaults standardUserDefaults];
+    NSDictionary *heightDict = [NSDictionary dictionaryWithDictionary: [heightDefaults objectForKey:@"heightDict"]];
+
+    if(heightDict){
+        self.txtHeightFeet.text = [heightDict objectForKey:@"heightFeet"];
+        self.txtHeightInches.text = [heightDict objectForKey:@"heightInches"];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -117,16 +126,43 @@
 
 -(void) calculateStandardBMI
 {
-    BMIFormula *calculateBMI = [BMIFormula getStandardValue:[self.txtHeightFeet.text floatValue]:[self.txtHeightInches.text floatValue] :[self.txtWeight.text floatValue]];
+    BMIFormula *calculateBMI = [BMIFormula getStandardValue:[self.txtHeightFeet.text floatValue]
+                                                           :[self.txtHeightInches.text floatValue]
+                                                           :[self.txtWeight.text floatValue]];
     
     self.calculatedBMI = [[calculateBMI getBMI] floatValue];
+    [self saveUserDef];
 }
 
 -(void) calculateMetricBMI
 {
-    BMIFormula *calculateBMI = [BMIFormula getMetricValue:[self.txtHeightCentimeter.text floatValue] :[self.txtWeight.text floatValue]];
+    BMIFormula *calculateBMI = [BMIFormula getMetricValue:[self.txtHeightCentimeter.text floatValue]
+                                                         :[self.txtWeight.text floatValue]];
     
     self.calculatedBMI = [[calculateBMI getBMI] floatValue];
+    [self saveUserDef];
+}
+
+-(void) saveUserDef
+{
+    NSString *feetHeight;
+    NSString *inchesHeight;
+    
+    if(self.usedMeasurementSystem == MetricSystem){
+        NSArray *standardList = [NSArray arrayWithArray:[BMIFormula convertHeightToStandard:[self.txtHeightCentimeter.text floatValue]]];
+        feetHeight = [standardList objectAtIndex:0];
+        inchesHeight = [standardList objectAtIndex:1];
+    }
+    else{
+        feetHeight = self.txtHeightFeet.text;
+        inchesHeight = self.txtHeightInches.text;
+    }
+    
+    NSUserDefaults *heightDefault = [NSUserDefaults standardUserDefaults];
+    NSDictionary *heightDict = [NSDictionary dictionaryWithObjectsAndKeys: feetHeight, @"heightFeet",
+                                inchesHeight , @"heightInches", nil];
+    [heightDefault setObject:heightDict forKey:@"heightDict"];
+    [heightDefault synchronize];
 }
 
 #pragma mark - Design

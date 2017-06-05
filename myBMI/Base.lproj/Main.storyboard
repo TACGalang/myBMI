@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kNo-Dl-Rp1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kNo-Dl-Rp1">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -291,10 +291,10 @@
                                 <include reference="7Ba-7m-w3Q"/>
                                 <include reference="ArK-St-OkO"/>
                                 <include reference="orl-Ag-JkV"/>
-                                <include reference="ztd-eT-fjX"/>
                                 <include reference="Bjj-Ad-wjZ"/>
                                 <include reference="fWr-jD-Uic"/>
                                 <include reference="ua8-V5-kmX"/>
+                                <include reference="ztd-eT-fjX"/>
                                 <include reference="TNj-dR-VaA"/>
                                 <include reference="bGW-R4-rIP"/>
                                 <include reference="cUD-aa-E7Y"/>
@@ -317,10 +317,10 @@
                                 <include reference="7Ba-7m-w3Q"/>
                                 <include reference="ArK-St-OkO"/>
                                 <include reference="orl-Ag-JkV"/>
-                                <include reference="ztd-eT-fjX"/>
                                 <include reference="Bjj-Ad-wjZ"/>
                                 <include reference="fWr-jD-Uic"/>
                                 <include reference="ua8-V5-kmX"/>
+                                <include reference="ztd-eT-fjX"/>
                                 <include reference="TNj-dR-VaA"/>
                                 <include reference="bGW-R4-rIP"/>
                                 <include reference="cUD-aa-E7Y"/>
@@ -347,6 +347,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wo8-Oq-9Q1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2956" y="873"/>
+        </scene>
+        <!--About the App-->
+        <scene sceneID="oZH-xF-7Cj">
+            <objects>
+                <viewController id="EcE-aT-YiM" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nBo-ui-5Oo"/>
+                        <viewControllerLayoutGuide type="bottom" id="MG3-AQ-ZtE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="R3g-gi-aZL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="About the App" id="sCw-5q-UNb"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nn3-j1-wmz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2936.8000000000002" y="1608.8455772113944"/>
         </scene>
         <!--Launch Screen View Controller-->
         <scene sceneID="9Af-cO-5it">
@@ -452,6 +471,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XrU-iu-nwC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2015" y="872"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="syO-Nq-33Y">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="F94-1Q-rKj" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="VeK-6e-x48">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.55765414237976074" green="0.83971083164215088" blue="0.88964742422103882" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="EcE-aT-YiM" kind="relationship" relationship="rootViewController" id="j51-df-kUr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FZ1-0p-VQM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2014" y="1609"/>
         </scene>
     </scenes>
     <resources>

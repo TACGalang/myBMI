@@ -25,58 +25,77 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    if(self.navigationBarTitleString){
+    @try {
         
-        self.navigationItem.title = self.navigationBarTitleString;
-    }
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    self.lblHeight.text = [NSString stringWithFormat:@"Height: %@", self.height];
-    self.lblWeight.text = [NSString stringWithFormat:@"Weight: %@", self.weight];
-    self.lblBMI.text = self.bmi;
-    
-    [self categoryCheck];
+        if(self.navigationBarTitleString){
+            
+            self.navigationItem.title = self.navigationBarTitleString;
+        }
+        self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+        self.lblHeight.text = [NSString stringWithFormat:@"Height: %@", self.height];
+        self.lblWeight.text = [NSString stringWithFormat:@"Weight: %@", self.weight];
+        self.lblBMI.text = self.bmi;
+        
+        [self categoryCheck];
+        
+        switch (_fromWhere) {
+            case FromCalculate:
+                self.btnRecord.hidden = NO;
+                self.btnBack.hidden = NO;
+                break;
+                
+            case FromTab:
+                self.btnBack.hidden = YES;
+                self.btnRecord.hidden = YES;
+                break;
+                
+            case FromCell:
+                self.navigationItem.rightBarButtonItem.title = @"Delete";
+                self.navigationItem.rightBarButtonItem.tintColor = [UIColor orangeColor];
+                self.btnBack.hidden = YES;
+                self.btnRecord.hidden = YES;
+                break;
+            default:
+                break;
+        }
 
-    switch (_fromWhere) {
-        case FromCalculate:
-            self.btnRecord.hidden = NO;
-            self.btnBack.hidden = NO;
-            break;
-            
-        case FromTab:
-            self.btnBack.hidden = YES;
-            self.btnRecord.hidden = YES;
-            break;
-            
-        case FromCell:
-            self.navigationItem.rightBarButtonItem.title = @"Delete";
-            self.navigationItem.rightBarButtonItem.tintColor = [UIColor orangeColor];
-            self.btnBack.hidden = YES;
-            self.btnRecord.hidden = YES;
-            break;
-        default:
-            break;
+        
+    } @catch (NSException *exception) {
+        
+        self.lblBMI.text = @"Ooops!";
+        self.lblHeight.text = @"Please calculate your BMI first";
+        self.lblWeight.text = @"";
+    } @finally {
+        
     }
-}
+    }
 
 - (void) viewDidAppear:(BOOL)animated
 {
-    switch (_fromWhere) {
+    @try {
+        switch (_fromWhere) {
+                
+            case FromTab:
+                self.categoryAnimation.animationProgress = 0;
+                [self.categoryAnimation removeFromSuperview];
+                self.storedBMI = [[NSMutableArray alloc] initWithArray:[self getCoreData]];
+                NSManagedObjectModel *bmiData = [self.storedBMI objectAtIndex:0];
+                
+                self.myCategory = [BMIFormula determineCategory:[[bmiData valueForKey:@"bmi_index"] floatValue]];
+                self.lblBMI.text = [bmiData valueForKey:@"bmi_index"];
+                self.lblHeight.text = [NSString stringWithFormat:@"Height: %@", [bmiData valueForKey:@"bmi_height"]];
+                self.lblWeight.text = [NSString stringWithFormat:@"Weight: %@", [bmiData valueForKey:@"bmi_weight"] ];
+                [self categoryCheck];
+                self.btnBack.hidden = YES;
+                self.btnRecord.hidden = YES;
+                break;
+        }
+    } @catch (NSException *exception) {
         
-        case FromTab:
-            self.categoryAnimation.animationProgress = 0;
-            [self.categoryAnimation removeFromSuperview];
-            self.storedBMI = [[NSMutableArray alloc] initWithArray:[self getCoreData]];
-            NSManagedObjectModel *bmiData = [self.storedBMI objectAtIndex:0];
-
-            self.myCategory = [BMIFormula determineCategory:[[bmiData valueForKey:@"bmi_index"] floatValue]];
-            self.lblBMI.text = [bmiData valueForKey:@"bmi_index"];
-            self.lblHeight.text = [NSString stringWithFormat:@"Height: %@", [bmiData valueForKey:@"bmi_height"]];
-            self.lblWeight.text = [NSString stringWithFormat:@"Weight: %@", [bmiData valueForKey:@"bmi_weight"] ];
-            [self categoryCheck];
-            self.btnBack.hidden = YES;
-            self.btnRecord.hidden = YES;
-            break;
+    } @finally {
+        
     }
+    
     
 }
 

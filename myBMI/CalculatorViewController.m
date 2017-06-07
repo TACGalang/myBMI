@@ -176,10 +176,10 @@
                                                                   target:self
                                                                   action:@selector(doneClicked:)];
     
-    UIBarButtonItem *moveNextButton = [[UIBarButtonItem alloc] initWithTitle:@"Next"
-                                                                   style:UIBarButtonItemStylePlain
-                                                                  target:self
-                                                                  action:@selector(nextTextField:)];
+//    UIBarButtonItem *moveNextButton = [[UIBarButtonItem alloc] initWithTitle:@"Next"
+//                                                                   style:UIBarButtonItemStylePlain
+//                                                                  target:self
+//                                                                  action:@selector(nextTextField:)];
     
     [keyboardDoneButtonView setItems:[NSArray arrayWithObjects:doneButton, nil]];
     self.txtHeightFeet.inputAccessoryView = keyboardDoneButtonView;
